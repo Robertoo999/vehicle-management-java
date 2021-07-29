@@ -22,3 +22,10 @@ password: admin
 ```
 
 ### Screenshots:
+![Main-menu](Screenshots/Main%20Menu.png?raw=true)
+
+![Login-menu](Screenshots/Login%20Menu.png?raw=true)
+
+![View-vehicles](Screenshots/View%20and%20Order%20Vehicles.png?raw=true)
+
+![Dealer-menu](Screenshots/Dealer%20Menu.png?raw=true)
