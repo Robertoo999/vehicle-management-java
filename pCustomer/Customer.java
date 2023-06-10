@@ -10,10 +10,10 @@ class InfoCustomer extends Details
 {
 	static int newid=300;
 	int id=0;
-	InfoCustomer(String uname, String pass, String name, String region, String phone,String email)
+	InfoCustomer(String uname, String pass, String name, String city, String phone,String email)
 	{
 		id=newid++;
-		userdetails(uname,pass,name,region,phone,email);		
+		userdetails(uname,pass,name,city,phone,email);
 	}
 }
 
@@ -25,17 +25,17 @@ public class Customer
 	public ArrayList<String> Cid=new ArrayList<String>();
 	public ArrayList<String> Cuname=new ArrayList<String>();
 	public ArrayList<String> Cname=new ArrayList<String>();
-	public ArrayList<String> Cregion=new ArrayList<String>();
+	public ArrayList<String> Ccity =new ArrayList<String>();
 	public ArrayList<String> Cphone=new ArrayList<String>();
 	public ArrayList<String> Cemail=new ArrayList<String>();
 	
-	public Vector<InfoCustomer> v=new Vector<InfoCustomer>();
+	public List<InfoCustomer> v=new ArrayList<>();
 	
 	public InfoCustomer loggedinCustomer;
 	//to create and add new Customer to the vector list
-	public void addCustomer(String uname, String pass, String name, String region, String phone,String email)
+	public void addCustomer(String uname, String pass, String name, String city, String phone,String email)
 	{
-		InfoCustomer customer = new InfoCustomer(uname,pass,name,region,phone,email);
+		InfoCustomer customer = new InfoCustomer(uname,pass,name,city,phone,email);
 		v.add(customer);
 	}
 	
@@ -48,7 +48,7 @@ public class Customer
 			Cname.add(temp.name);
 			Cid.add(Integer.toString(temp.id));
 			Cuname.add(temp.uname);
-			Cregion.add(temp.region);
+			Ccity.add(temp.city);
 			Cphone.add(temp.phone);
 			Cemail.add(temp.email);
 		}
@@ -58,7 +58,7 @@ public class Customer
 	public void clearall()
 	{
 		Cuname.clear();
-		Cregion.clear();
+		Ccity.clear();
 		Cphone.clear();
 		Cemail.clear();
 		Cid.clear();
@@ -99,7 +99,7 @@ public class Customer
 		else if(i==1)
 			return loggedinCustomer.name;
 		else if(i==2)
-			return loggedinCustomer.region;
+			return loggedinCustomer.city;
 		else if(i==3)
 			return loggedinCustomer.phone;
 		else if(i==4)

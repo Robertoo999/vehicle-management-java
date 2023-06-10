@@ -9,11 +9,11 @@ import java.util.*;
 class InfoDealer extends Details
 {
 	static int newid=400;
-	int id=0;
-	InfoDealer(String uname, String pass, String name, String region, String phone,String email)
+	int id;
+	InfoDealer(String uname, String pass, String name, String city, String phone,String email)
 	{
 		id=newid++;
-		userdetails(uname,pass,name,region,phone,email);
+		userdetails(uname,pass,name,city,phone,email);
 	}
 }
 
@@ -25,18 +25,17 @@ public class Dealer
 	public ArrayList<String> Did=new ArrayList<String>();
 	public ArrayList<String> Duname=new ArrayList<String>();
 	public ArrayList<String> Dname=new ArrayList<String>();
-	public ArrayList<String> Dregion=new ArrayList<String>();
+	public ArrayList<String> Dcity =new ArrayList<String>();
 	public ArrayList<String> Dphone=new ArrayList<String>();
 	public ArrayList<String> Demail=new ArrayList<String>();
 	
-	public Vector<InfoDealer> v=new Vector<InfoDealer>();
-	Scanner sc=new Scanner(System.in);
-	
+	public List<InfoDealer> v=new ArrayList<>();
+
 	public InfoDealer loggedinDealer;
 	//to create and add new dealer to the vector list
-	public void addDealer(String uname, String pass, String name, String region, String phone,String email)
+	public void addDealer(String uname, String pass, String name, String city, String phone,String email)
 	{
-		InfoDealer dealer = new InfoDealer(uname,pass,name,region,phone,email);
+		InfoDealer dealer = new InfoDealer(uname,pass,name,city,phone,email);
 		v.add(dealer);
 	}
 	
@@ -75,7 +74,7 @@ public class Dealer
 			Dname.add(temp.name);
 			Did.add(Integer.toString(temp.id));
 			Duname.add(temp.uname);
-			Dregion.add(temp.region);
+			Dcity.add(temp.city);
 			Dphone.add(temp.phone);
 			Demail.add(temp.email);
 		}
@@ -85,7 +84,7 @@ public class Dealer
 	public void clearall()
 	{
 		Duname.clear();
-		Dregion.clear();
+		Dcity.clear();
 		Dphone.clear();
 		Demail.clear();
 		Did.clear();
@@ -103,7 +102,7 @@ public class Dealer
 	}
 	
 	//to get current user info
-	public boolean loginDealer(String uname, String pass, Vehicle vh)
+	public boolean loginDealer(String uname, String pass)
 	{
 		boolean flag=false;
 		for(int i=0; i<v.size(); i++)
@@ -114,8 +113,6 @@ public class Dealer
 				loggedinDealer=v.get(i);
 				break;
 			}
-			else
-				flag=false;
 		}
 		return flag;
 	}
@@ -128,7 +125,7 @@ public class Dealer
 		else if(i==1)
 			return loggedinDealer.name;
 		else if(i==2)
-			return loggedinDealer.region;
+			return loggedinDealer.city;
 		else if(i==3)
 			return loggedinDealer.phone;
 		else if(i==4)
@@ -155,7 +152,7 @@ public class Dealer
 	}
 	
 	//Placeholder
-	public static void main(String args[])
+	public static void main(String[] args)
 	{
 	
 	}
